@@ -37,41 +37,28 @@ export class FloatingDockComponent implements OnInit {
   isTop: boolean;
   isLeft: boolean;
 
+  private readonly _vertical = ['top', 'bottom'];
+
   constructor(
     private _elementRef: ElementRef,
     private _controller: ComponentController
   ) {}
 
   ngOnInit() {
-    const { target, position, margin, align } = this._controller.getExtras();
+    const { position, margin, align } = this._controller.getExtras();
     const { top, left, right, bottom, width, height } = this._controller.getExtra('target').getBoundingClientRect();
-    switch (position) {
-      case 'top':
-        this.top = top;
-        this.left = left;
-        this.width = width;
-        this.isTop = true;
-        this.positionVertical = true;
-        break;
-      case 'left':
-        this.top = top;
-        this.left = left;
-        this.height = height;
-        this.isLeft = true;
-        this.positionHorizontal = true;
-        break;
-      case 'right':
-        this.top = top;
-        this.left = right;
-        this.height = height;
-        this.positionHorizontal = true;
-        break;
-      case 'bottom':
-        this.top = bottom;
-        this.left = left;
-        this.width = width;
-        this.positionVertical = true;
-        break;
+    if (this._vertical.includes(position)) {
+      this.left = left;
+      this.width = width;
+      this.positionVertical = true;
+      this.isTop = position === 'top';
+      this.top = this.isTop ? top : bottom;
+    } else {
+      this.top = top;
+      this.height = height;
+      this.positionHorizontal = true;
+      this.isLeft = position === 'left';
+      this.left = this.isLeft ? left : right;
     }
   }
 }
