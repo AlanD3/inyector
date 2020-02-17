@@ -1,0 +1,19 @@
+<div style="position: relative; width: 100%; height: 100%; overflow: hidden">
+  <div *ngIf="ready" style="width: 100%; height: 100%; background-color: black">
+    <ng-container [ngSwitch]="image">
+      <ng-container *ngSwitchCase="0">
+        <img src="../../assets/gif/baby.gif" alt>
+      </ng-container>
+      <ng-container *ngSwitchCase="1">
+        <img src="../../assets/gif/badger.gif" alt>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <img src="../../assets/gif/nyan.gif" alt>
+      </ng-container>
+      <ng-container *ngSwitchCase="3">
+        <img src="../../assets/gif/stare.gif" alt>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="noise" [hidden]="ready"></div>
+</div>
