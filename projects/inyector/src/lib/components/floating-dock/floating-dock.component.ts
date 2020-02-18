@@ -31,6 +31,12 @@ export class FloatingDockComponent implements OnInit {
   @HostBinding('style.height.px')
   height: number;
 
+  @HostBinding('style.marginTop.px')
+  marginTop: number;
+
+  @HostBinding('style.marginLeft.px')
+  marginLeft: number;
+
   @ViewChild('container', { static: true })
   container: HTMLElement;
 
@@ -45,20 +51,24 @@ export class FloatingDockComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const { position, margin, align } = this._controller.getExtras();
-    const { top, left, right, bottom, width, height } = this._controller.getExtra('target').getBoundingClientRect();
+    const { target, position, margin = 0 } = this._controller.getExtras();
+    const { top, left, right, bottom, width, height } = target.getBoundingClientRect();
     if (this._vertical.includes(position)) {
       this.left = left;
       this.width = width;
       this.positionVertical = true;
       this.isTop = position === 'top';
-      this.top = this.isTop ? top : bottom;
+      this.top = this.isTop ? (top - margin) : bottom;
+      if (!this.isTop)
+        this.marginTop = margin;
     } else {
       this.top = top;
       this.height = height;
       this.positionHorizontal = true;
       this.isLeft = position === 'left';
-      this.left = this.isLeft ? left : right;
+      this.left = this.isLeft ? (left - margin) : right;
+      if (!this.isLeft)
+        this.marginLeft = margin;
     }
   }
 }

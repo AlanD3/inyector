@@ -45,7 +45,8 @@ export class Inyector {
   dock<T>(params: DockParams<T>): ComponentController<T> {
     const dockController = this.append({ component: FloatingDockComponent, extras: {
       target: params.target,
-      position: params.position
+      position: params.position,
+      margin: params.margin
     }});
     return this.append({
       component: params.component,
