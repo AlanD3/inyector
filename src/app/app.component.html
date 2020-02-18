@@ -1,72 +1,66 @@
 <div class="container">
-  <h1 style="text-align: center">
-    Inyector
-  </h1>
-  <div style="padding: 2rem 1rem">
-    <div style="display: flex">
-      <div style="padding: 0 1rem; flex: 0 0 33.33%">
-        <div style="padding: 2rem; box-shadow: 5px 5px 7px 1px #3754aa2f; border-radius: 10px; border: 1px solid #3754aa0f">
-          <div style="text-align: center; margin-bottom: 2rem">
-            <button (click)="injectOnBody()">
-              Inject in body
-            </button>
-          </div>
-          <div style="height: 13.5rem; display: flex; align-items: center; justify-content: center">
-            The component will be appended in the body
-          </div>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="injectOnBody()">
+            Inject in body
+          </button>
         </div>
-      </div>
-      <div style="padding: 0 1rem; flex: 0 0 33.33%">
-        <div style="padding: 2rem; box-shadow: 5px 5px 7px 1px #3754aa2f; border-radius: 0.75rem; border: 1px solid #3754aa0f">
-          <div style="text-align: center; margin-bottom: 2rem">
-            <button (click)="injectOnElement(container)">
-              Inject in component
-            </button>
-          </div>
-          <div style="border: 3px dotted hsl(225, 0%, 55%); border-radius: 0.35rem; padding: 0.5rem">
-            <p style="margin: 0 0 1rem; font-size: 0.9rem">
-              The component wil be injected here
-            </p>
-            <div #container style="height: 10rem"></div>
-          </div>
-        </div>
-      </div>
-      <div style="padding: 0 1rem; flex: 0 0 33.33%">
-        <div style="padding: 2rem; box-shadow: 5px 5px 7px 1px #3754aa2f; border-radius: 10px; border: 1px solid #3754aa0f">
-          <div style="text-align: center; margin-bottom: 2rem">
-            <button (click)="injectFloatingComponent(form.value.dock)">
-              Inject in a floating dock
-            </button>
-          </div>
-          <form #form="ngForm" (change)="reset()" style="position: relative; height: 13.5rem; border: 3px dotted hsl(225, 0%, 55%); border-radius: 0.35rem; padding: 0.5rem; font-size: 0.9rem">
-            <div style="position: absolute; top: 0.75rem; left: 0; right: 0;  display: flex; align-items: center; justify-content: center">
-              <label #top data-position="top">
-                <input type="radio" name="dock" [value]="top" [ngModel]="top">
-                On top
-              </label>
-            </div>
-            <div style="position: absolute; top: 0; left: 0.75rem; bottom: 0; display: flex; align-items: center; justify-content: center">
-              <label #left data-position="left">
-                <input type="radio" name="dock" [value]="left" [ngModel]="left">
-                On left
-              </label>
-            </div>
-            <div style="position: absolute; top: 0; right: 0.75rem; bottom: 0; display: flex; align-items: center; justify-content: center">
-              <label #right data-position="right">
-                <input type="radio" name="dock" [value]="right" [ngModel]="right">
-                On right
-              </label>
-            </div>
-            <div style="position: absolute; left: 0; right: 0; bottom: 0.75rem; display: flex; align-items: center; justify-content: center">
-              <label #bottom data-position="bottom">
-                <input type="radio" name="dock" checked [value]="bottom" [ngModel]="bottom">
-                On bottom
-              </label>
-            </div>
-          </form>
+        <div class="card-container borderless">
+          The component will be appended in the body
         </div>
       </div>
     </div>
+    <div class="column">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="injectOnElement(container)">
+            Inject in component
+          </button>
+        </div>
+        <div class="card-container">
+          <p>
+            The component wil be injected here
+          </p>
+          <div #container></div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="injectFloatingComponent(form.value.dock)">
+            Inject in a floating dock
+          </button>
+        </div>
+        <form #form="ngForm" class="card-container" (change)="reset()">
+          <div class="label-wrapper on-top">
+            <label #top data-position="top">
+              <input type="radio" name="dock" [value]="top" [ngModel]="top">
+              On top
+            </label>
+          </div>
+          <div class="label-wrapper on-left">
+            <label #left data-position="left">
+              <input type="radio" name="dock" [value]="left" [ngModel]="left">
+              On left
+            </label>
+          </div>
+          <div class="label-wrapper on-right">
+            <label #right data-position="right">
+              <input type="radio" name="dock" [value]="right" [ngModel]="right">
+              On right
+            </label>
+          </div>
+          <div class="label-wrapper on-bottom">
+            <label #bottom data-position="bottom">
+              <input type="radio" name="dock" checked [value]="bottom" [ngModel]="bottom">
+              On bottom
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <img src="../assets/noise.png" alt hidden>
 </div>
