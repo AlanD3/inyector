@@ -1,7 +1,8 @@
-import {ApplicationRef, ComponentRef, Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {ComponentEvent} from '../../classes/component-event/component-event';
-import {InjectorParams} from '../../classes/injector-params/injector-params';
+import { ApplicationRef, ComponentRef, Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+
+import { ComponentEvent } from '../../classes/component-event/component-event';
+import { InjectorParams } from '../../classes/injector-params/injector-params';
 
 @Injectable()
 export class ComponentController<T = any> {
