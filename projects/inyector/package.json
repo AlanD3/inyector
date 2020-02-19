@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "directory": "https://github.com/AlanD3/inyector"
+    "directory": "https://github.com/AlanD3/inyector.git"
   },
   "peerDependencies": {
     "@angular/common": "^9.0.1",
