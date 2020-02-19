@@ -8,7 +8,7 @@
   <meta name="description" content="Angular 9 component injector">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Krona+One&display=swap&text=Inyector">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Krona+One&display=swap">
   <style>
     * {
       box-sizing: border-box;
@@ -21,9 +21,28 @@
       margin: 0 2rem;
     }
 
+    nav {
+      padding: 0.5rem 0.5rem;
+    }
+
+    header a {
+      padding: 0.35rem 0.7rem;
+      margin: 0 0.25rem;
+
+      border-radius: 0.25rem;
+      color: black;
+      text-decoration: none;
+
+      font-family: 'Roboto', sans-serif;
+    }
+
+    header a:hover {
+      background-color: #eaeaea;
+    }
+
     h1 {
       letter-spacing: 0.6rem;
-      margin: 3rem 0;
+      margin: 1rem 0 3rem;
       text-align: center;
 
       font-family: 'Krona One', sans-serif;
@@ -33,6 +52,10 @@
 </head>
 <body>
   <header>
+    <nav>
+      <a href="https://github.com/AlanD3/inyector">github</a>
+      <a href="https://www.npmjs.com/package/inyector">npm</a>
+    </nav>
     <h1>Inyector</h1>
   </header>
   <main>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Inyector } from '../../projects/inyector/src/lib/inyector.service';
-import {TestComponent} from './test/test.component';
-import {ComponentController} from '../../projects/inyector/src/lib/services/component-controller/component-controller.service';
+import { Inyector, ComponentController } from 'inyector';
+
+import { TestComponent } from './test/test.component';
 
 @Component({
   selector: 'app-root',
