@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "copy_readme": "copy .\\README.md .\\dist\\ng-example-library",
+    "copy_readme": "copy .\\README.md .\\dist\\inyector",
     "npm_pack": "cd dist/inyector && npm pack",
     "package": "ng build inyector --prod && npm run copy_readme && npm run npm_pack"
   },
