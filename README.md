@@ -1,27 +1,63 @@
-# CmpInjector
+[![npm version](https://img.shields.io/npm/v/inyector)](https://www.npmjs.com/package/inyector)
+[![NPM Bundle Size](https://img.shields.io/bundlephobia/min/inyector)](https://bundlephobia.com/result?p=inyector@0.1.0)
+[![Download](https://img.shields.io/npm/dw/inyector)](https://www.npmjs.com/package/inyector)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+# Inyector
 
-## Development server
+Angular service for component injection
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Installation
+```bash
+npm install inyector --save
+```
 
-## Code scaffolding
+### Demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You can see the demo in https://inyector.netlify.com/
 
-## Build
+### Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Import
 
-## Running unit tests
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { InyectorModule } from 'inyector';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+    imports: [
+        BrowserModule,
+        InyectorModule.forRoot()
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-## Running end-to-end tests
+#### Inject component in body
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```ts
+this.inyector.append({
+    component: TestComponent
+});
+```
 
-## Further help
+#### Inject component in an element
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```ts
+this.inyector.append({
+    parent: htmlElement,
+    component: TestComponent
+});
+```
+
+#### Floating injection
+Inject component in a floating docker and attach it to another element
+
+```ts
+this.inyector.dock({
+    target: htmlElement,
+    component: TestComponent,
+    position: 'top',
+});
+```
