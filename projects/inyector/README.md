@@ -1,24 +1,63 @@
+[![npm version](https://img.shields.io/npm/v/inyector)](https://www.npmjs.com/package/inyector)
+[![NPM Bundle Size](https://img.shields.io/bundlephobia/min/inyector)](https://bundlephobia.com/result?p=inyector@0.1.0)
+[![Download](https://img.shields.io/npm/dw/inyector)](https://www.npmjs.com/package/inyector)
+
 # Inyector
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+Angular service for component injection
 
-## Code scaffolding
+### Installation
+```bash
+npm install inyector --save
+```
 
-Run `ng generate component component-name --project inyector` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project inyector`.
-> Note: Don't forget to add `--project inyector` or else it will be added to the default project in your `angular.json` file. 
+### Demo
 
-## Build
+You can see the demo in https://inyector.netlify.com/
 
-Run `ng build inyector` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Usage
 
-## Publishing
+#### Import
 
-After building your library with `ng build inyector`, go to the dist folder `cd dist/inyector` and run `npm publish`.
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { InyectorModule } from 'inyector';
 
-## Running unit tests
+@NgModule({
+    imports: [
+        BrowserModule,
+        InyectorModule.forRoot()
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng test inyector` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Inject component in body
 
-## Further help
+```ts
+    this.inyector.append({
+      component: TestComponent
+    });
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Inject component in an element
+
+```ts
+    this.inyector.append({
+      parent: htmlElement,
+      component: TestComponent
+    });
+```
+
+#### Floating injection
+Inject component in a floating docker and attach it to another element
+
+```ts
+    this.inyector.dock({
+      target: htmlElement,
+      component: TestComponent,
+      position: 'top',
+    });
+```

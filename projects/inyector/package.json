@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "license": "ISC",
   "homepage": "https://inyector.netlify.com/",
+  "keywords": [
+    "ng",
+    "angular",
+    "injector",
+    "component",
+    "dynamically"
+  ],
   "repository": {
     "type": "git",
     "directory": "https://github.com/AlanD3/inyector"
