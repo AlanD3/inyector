@@ -1,6 +1,7 @@
 {
   "name": "inyector",
-  "version": "0.2.0",
+  "version": "0.2.1",
+  "description": "Angular service for component injection",
   "author": "Alan Delgado",
   "license": "ISC",
   "homepage": "https://inyector.netlify.com/",
