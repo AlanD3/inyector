@@ -1,5 +1,6 @@
-import {Component, ElementRef, HostBinding, OnInit, ViewChild} from '@angular/core';
-import {ComponentController} from '../../services/component-controller/component-controller.service';
+import { Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
+
+import { ComponentController } from '../../services/component-controller/component-controller.service';
 
 @Component({
   selector: 'inyector-floating-dock',

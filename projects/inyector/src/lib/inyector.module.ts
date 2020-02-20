@@ -1,6 +1,6 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FloatingDockComponent } from './components/floating-dock/floating-dock.component';
-import {Inyector} from './inyector.service';
+import { Inyector } from './inyector.service';
 
 @NgModule({
   declarations: [ FloatingDockComponent ]

@@ -4,7 +4,7 @@ import { FloatingDockComponent } from './components/floating-dock/floating-dock.
 import { ComponentController } from './services/component-controller/component-controller.service';
 import { InjectorParams } from './classes/injector-params/injector-params';
 import { InyectorParams } from './classes/inyector-params/inyector-params';
-import {DockParams} from './classes/dock-params/dock-params';
+import { DockParams } from './classes/dock-params/dock-params';
 
 @Injectable()
 export class Inyector {
