@@ -2,7 +2,7 @@ import { ApplicationRef, ComponentRef, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import { ComponentEvent } from '../../classes/component-event/component-event';
-import { InjectorParams } from '../../classes/injector-params/injector-params';
+import { InyectorParams } from '../../classes/inyector-params/inyector-params';
 
 @Injectable()
 export class ComponentController<T = any> {
@@ -12,7 +12,7 @@ export class ComponentController<T = any> {
 
   constructor(
     private appRef: ApplicationRef,
-    private params: InjectorParams<T>
+    private params: InyectorParams
   ) {
     this.eventEmitter = new Subject<ComponentEvent>();
     this.eventEmitter.subscribe(($event) => {

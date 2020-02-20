@@ -1,10 +1,7 @@
 import { Type } from '@angular/core';
 
-export class InjectorParams<T> {
+import { InyectorParams } from '../inyector-params/inyector-params';
+
+export class InjectorParams<T> extends InyectorParams {
   component: Type<T>;
-  parent?: HTMLElement;
-  dock?: any;
-  extras?: {
-    [s: string]: any
-  };
 }
