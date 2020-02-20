@@ -18,24 +18,17 @@ export class AppComponent {
 
   injectOnBody() {
     this.reset();
-    this.controller = this._inyector.append({
-      component: TestComponent
-    });
+    this.controller = this._inyector.add(TestComponent);
   }
 
   injectOnElement(parent: HTMLElement) {
     this.reset();
-    this.controller = this._inyector.append({
-      parent,
-      component: TestComponent
-    });
+    this.controller = this._inyector.add(TestComponent, { parent });
   }
 
   injectFloatingComponent(dock: HTMLElement) {
     this.reset();
-    this.controller = this._inyector.dock({
-      target: dock,
-      component: TestComponent,
+    this.controller = this._inyector.dock(TestComponent, dock, {
       position: dock.getAttribute('data-position') as any,
       margin: 15
     });
