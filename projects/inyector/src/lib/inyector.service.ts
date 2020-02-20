@@ -5,9 +5,7 @@ import { ComponentController } from './services/component-controller/component-c
 import { InjectorParams } from './classes/injector-params/injector-params';
 import { InyectorParams } from './classes/inyector-params/inyector-params';
 
-class DockParams<T> {
-  target: HTMLElement;
-  component: Type<T>;
+class DockParams {
   position: 'top' | 'left' | 'right' | 'bottom';
   margin?: number;
   align?: 'top' | 'left' | 'right' | 'bottom';
@@ -54,15 +52,15 @@ export class Inyector {
     return this.add<T>(params.component, params);
   }
 
-  dock<T>(params: DockParams<T>): ComponentController<T> {
+  dock<T>(component: Type<T>, target: HTMLElement, params: DockParams = { position: 'bottom' }): ComponentController<T> {
     const dockController = this.add(FloatingDockComponent, {
       extras: {
-        target: params.target,
+        target,
         position: params.position,
         margin: params.margin
       }
     });
-    return this.add(params.component, {
+    return this.add(component, {
       dock: dockController
     });
   }
