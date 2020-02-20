@@ -25,11 +25,7 @@ export class ComponentController<T = any> {
   }
 
   getExtra(value: string, defaultValue?: any): any {
-    return this.params.extras ? (
-      this.params.extras[value] || defaultValue
-    ) : (
-      defaultValue
-    );
+    return this.params.extras?.[value] ?? defaultValue;
   }
 
   getExtras(): { [parans: string]: any } {
