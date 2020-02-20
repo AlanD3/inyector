@@ -37,17 +37,14 @@ export class AppModule { }
 #### Inject component in body
 
 ```ts
-this.inyector.append({
-    component: TestComponent
-});
+this.inyector.add(TestComponent);
 ```
 
 #### Inject component in an element
 
 ```ts
-this.inyector.append({
-    parent: htmlElement,
-    component: TestComponent
+this.inyector.add(TestComponent, {
+    parent: htmlElement
 });
 ```
 
@@ -55,9 +52,7 @@ this.inyector.append({
 Inject component in a floating docker and attach it to another element
 
 ```ts
-this.inyector.dock({
-    target: htmlElement,
-    component: TestComponent,
-    position: 'top',
+this.inyector.dock(TestComponent, parentHtmlElement, {
+    position: 'top'
 });
 ```
