@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { InyectorService } from './inyector.service';
+import { Inyector } from './inyector.service';
 
 describe('InyectorService', () => {
-  let service: InyectorService;
+  let service: Inyector;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(InyectorService);
+    TestBed.configureTestingModule({
+      providers: [ Inyector ]
+    });
+    service = TestBed.inject(Inyector);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  // TODO before 1.0.0 write tests
 });
