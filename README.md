@@ -1,6 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/inyector)](https://www.npmjs.com/package/inyector)
 [![NPM Bundle Size](https://img.shields.io/bundlephobia/min/inyector)](https://bundlephobia.com/result?p=inyector@0.1.0)
-[![Download](https://img.shields.io/npm/dw/inyector)](https://www.npmjs.com/package/inyector)
+[![Download](https://img.shields.io/npm/dt/inyector)](https://www.npmjs.com/package/inyector)
 
 # Inyector
 
