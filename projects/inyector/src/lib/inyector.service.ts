@@ -56,7 +56,8 @@ export class Inyector {
       }
     });
     return this.add(component, {
-      dock: dockController
+      dock: dockController,
+      extras: params.extras
     });
   }
 }

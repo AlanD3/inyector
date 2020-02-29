@@ -11,6 +11,10 @@
   border: 1px solid #3754aa0f;
   border-radius: 0.5rem;
   background-color: #333;
+
+  &.shadow {
+    box-shadow: 0 3px 5px rgba(black, 0.5);
+  }
 }
 
 img {

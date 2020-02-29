@@ -30,7 +30,10 @@ export class AppComponent {
     this.reset();
     this.controller = this._inyector.dock(TestComponent, dock, {
       position: dock.getAttribute('data-position') as any,
-      margin: 15
+      margin: 15,
+      extras: {
+        shadow: true
+      }
     });
   }
 
