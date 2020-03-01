@@ -1,3 +1,21 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/aland3/inyector/compare/0.3.0...1.0.0) (2020-02-29)
+
+## Features
+
+* add classes to public api ([6bbe08d](https://github.com/aland3/inyector/commit/6bbe08d))
+* add extra params to dock ([d11edd2](https://github.com/aland3/inyector/commit/d11edd2))
+* add container directive for floating-dock-component ([3da95ca](https://github.com/aland3/inyector/commit/3da95ca))
+* add align to floating-dock-component ([f273f20](https://github.com/aland3/inyector/commit/f273f20))
+
+
+## Code Refactoring
+
+* remove unused css classes ([2bcba59](https://github.com/aland3/inyector/commit/2bcba59))
+* remove deprecated method and class ([539da69](https://github.com/aland3/inyector/commit/539da69))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/aland3/inyector/compare/0.2.3...0.3.0) (2020-02-19)
 
