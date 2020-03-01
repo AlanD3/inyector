@@ -2,7 +2,6 @@ import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, 
 
 import { FloatingDockComponent } from './components/floating-dock/floating-dock.component';
 import { ComponentController } from './services/component-controller/component-controller.service';
-import { InjectorParams } from './classes/injector-params/injector-params';
 import { InyectorParams } from './classes/inyector-params/inyector-params';
 import { DockParams } from './classes/dock-params/dock-params';
 
@@ -35,16 +34,6 @@ export class Inyector {
     (params.parent || params.dock?.getInstance().element || document.body).appendChild(domElement);
 
     return controller;
-  }
-
-  /**
-   * @deprecated
-   * user {@link add} instead
-   *
-   * will be removed in v1.0.0
-   */
-  append<T>(params: InjectorParams<T>): ComponentController<T> {
-    return this.add<T>(params.component, params);
   }
 
   dock<T>(component: Type<T>, target: HTMLElement, params: DockParams): ComponentController<T> {
