@@ -32,7 +32,7 @@ export class Inyector {
 
     this.appRef.attachView(componentRef.hostView);
     const domElement = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
-    (params.parent || params.dock?.getInstance().container.nativeElement || document.body).appendChild(domElement);
+    (params.parent || params.dock?.getInstance().element || document.body).appendChild(domElement);
 
     return controller;
   }

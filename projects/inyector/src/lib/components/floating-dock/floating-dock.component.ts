@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
 
+import { FloatingDockContainerDirective } from '../../directives/floating-dock-container/floating-dock-container.directive';
 import { ComponentController } from '../../services/component-controller/component-controller.service';
 
 @Component({
@@ -38,11 +39,8 @@ export class FloatingDockComponent implements OnInit {
   @HostBinding('style.marginLeft.px')
   marginLeft: number;
 
-  @ViewChild('container', { static: true })
-  container: HTMLElement;
-
-  isTop: boolean;
-  isLeft: boolean;
+  @ViewChild(FloatingDockContainerDirective, { static: true })
+  container: FloatingDockContainerDirective;
 
   private readonly _vertical = ['top', 'bottom'];
 
@@ -54,22 +52,27 @@ export class FloatingDockComponent implements OnInit {
   ngOnInit() {
     const { target, position, margin = 0 } = this._controller.getExtras();
     const { top, left, right, bottom, width, height } = target.getBoundingClientRect();
+    this.container.position = position;
     if (this._vertical.includes(position)) {
       this.left = left;
       this.width = width;
       this.positionVertical = true;
-      this.isTop = position === 'top';
-      this.top = this.isTop ? (top - margin) : bottom;
-      if (!this.isTop)
+      const isTop = position === 'top';
+      this.top = isTop ? (top - margin) : bottom;
+      if (!isTop)
         this.marginTop = margin;
     } else {
       this.top = top;
       this.height = height;
       this.positionHorizontal = true;
-      this.isLeft = position === 'left';
-      this.left = this.isLeft ? (left - margin) : right;
-      if (!this.isLeft)
+      const isLeft = position === 'left';
+      this.left = isLeft ? (left - margin) : right;
+      if (!isLeft)
         this.marginLeft = margin;
     }
+  }
+
+  get element() {
+    return this.container.element.nativeElement;
   }
 }

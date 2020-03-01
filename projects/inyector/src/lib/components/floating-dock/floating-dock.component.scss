@@ -2,27 +2,29 @@
 :host {
   position: absolute;
 
-  .dock-container {
+  [inyectorFloatingDockContainer] {
     position: absolute;
 
     display: flex;
     width: 100%;
     height: 100%;
-  }
 
-  &.position-vertical .dock-container {
-    justify-content: center;
-
-    &.position-top {
+    &[position=top] {
+      justify-content: center;
       align-items: flex-end;
     }
-  }
 
-  &.position-horizontal .dock-container {
-    align-items: center;
-
-    &.position-left {
+    &[position=left] {
+      align-items: center;
       justify-content: flex-end
+    }
+
+    &[position=right] {
+      align-items: center;
+    }
+
+    &[position=bottom] {
+      justify-content: center;
     }
   }
 }
