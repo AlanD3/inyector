@@ -47,17 +47,14 @@ export class Inyector {
     return this.add<T>(params.component, params);
   }
 
-  dock<T>(component: Type<T>, target: HTMLElement, params: DockParams = { position: 'bottom' }): ComponentController<T> {
+  dock<T>(component: Type<T>, target: HTMLElement, params: DockParams): ComponentController<T> {
+    const { extras, margin, position = 'bottom', align = 'center' } = params;
     const dockController = this.add(FloatingDockComponent, {
-      extras: {
-        target,
-        position: params.position,
-        margin: params.margin
-      }
+      extras: { align, target, margin, position }
     });
     return this.add(component, {
-      dock: dockController,
-      extras: params.extras
+      extras,
+      dock: dockController
     });
   }
 }

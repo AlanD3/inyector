@@ -44,9 +44,10 @@ export class FloatingDockComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const { target, position, margin = 0 } = this._controller.getExtras();
+    const { target, position, align, margin = 0 } = this._controller.getExtras();
     const { top, left, right, bottom, width, height } = target.getBoundingClientRect();
     this.container.position = position;
+    this.container.align = align;
     if (this._vertical.includes(position)) {
       this.left = left;
       this.width = width;
