@@ -9,12 +9,6 @@ import { ComponentController } from '../../services/component-controller/compone
   styleUrls: ['./floating-dock.component.scss']
 })
 export class FloatingDockComponent implements OnInit {
-  @HostBinding('class.position-vertical')
-  positionVertical: boolean;
-
-  @HostBinding('class.position-horizontal')
-  positionHorizontal: boolean;
-
   @HostBinding('style.top.px')
   top: number;
 
@@ -56,7 +50,6 @@ export class FloatingDockComponent implements OnInit {
     if (this._vertical.includes(position)) {
       this.left = left;
       this.width = width;
-      this.positionVertical = true;
       const isTop = position === 'top';
       this.top = isTop ? (top - margin) : bottom;
       if (!isTop)
@@ -64,7 +57,6 @@ export class FloatingDockComponent implements OnInit {
     } else {
       this.top = top;
       this.height = height;
-      this.positionHorizontal = true;
       const isLeft = position === 'left';
       this.left = isLeft ? (left - margin) : right;
       if (!isLeft)
