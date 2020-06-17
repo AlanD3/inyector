@@ -1,5 +1,7 @@
 import { ApplicationRef, ComponentRef, Injectable } from '@angular/core';
+import { Params } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { ComponentEvent } from '../../classes/component-event/component-event';
 import { InyectorParams } from '../../classes/inyector-params/inyector-params';
@@ -8,27 +10,19 @@ import { InyectorParams } from '../../classes/inyector-params/inyector-params';
 export class ComponentController<T = any> {
   private componentRef: ComponentRef<any>;
   private eventEmitter: Subject<ComponentEvent>;
-  private readonly listeners: any;
 
   constructor(
     private appRef: ApplicationRef,
     private params: InyectorParams
   ) {
     this.eventEmitter = new Subject<ComponentEvent>();
-    this.eventEmitter.subscribe(($event) => {
-      if (this.listeners[$event.event]) {
-        this.listeners[$event.event]
-          .forEach((callback) => callback($event));
-      }
-    });
-    this.listeners = {};
   }
 
   getExtra(value: string, defaultValue?: any): any {
     return this.params.extras?.[value] ?? defaultValue;
   }
 
-  getExtras(): { [parans: string]: any } {
+  getExtras(): Params {
     return this.params.extras;
   }
 
@@ -41,16 +35,16 @@ export class ComponentController<T = any> {
   }
 
   on(event, callback: ($event: ComponentEvent) => void): ComponentController<T> {
-    if (!this.listeners[event])
-      this.listeners[event] = [];
-    this.listeners[event].push(callback);
+    this.listen(event)
+      .subscribe(callback);
     return this;
   }
 
   listen(event: string): Observable<ComponentEvent> {
-    const subject = new Subject<ComponentEvent>();
-    this.on(event, ($event) => subject.next($event));
-    return subject;
+    return this.eventEmitter
+      .pipe(filter(({ event: _event }) => (
+        _event === event
+      )));
   }
 
   setComponentRef(componentRef: ComponentRef<any>) {
