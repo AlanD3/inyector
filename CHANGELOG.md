@@ -1,3 +1,8 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/aland3/inyector/compare/1.0.0...2.0.0) (2020-07-14)
+
+Updates Angular to version 10
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/aland3/inyector/compare/0.3.0...1.0.0) (2020-02-29)
 
