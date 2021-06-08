@@ -1,3 +1,8 @@
+<a name="12.0.0"></a>
+# [12.0.0](https://github.com/aland3/inyector/compare/11.0.0...12.0.0) (2021-06-08)
+
+Updates Angular to version 12
+
 <a name="11.0.0"></a>
 # [11.0.0](https://github.com/aland3/inyector/compare/2.1.0...11.0.0) (2021-06-08)
 
