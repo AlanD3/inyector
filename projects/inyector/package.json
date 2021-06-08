@@ -1,6 +1,6 @@
 {
   "name": "inyector",
-  "version": "2.1.0",
+  "version": "11.0.0",
   "description": "Angular service for component injection",
   "author": "Alan Delgado",
   "license": "ISC",
@@ -18,8 +18,8 @@
     "url": "https://github.com/AlanD3/inyector.git"
   },
   "peerDependencies": {
-    "@angular/common": "~10.0.3",
-    "@angular/core": "~10.0.3"
+    "@angular/common": "~11.2.14",
+    "@angular/core": "~11.2.14"
   },
   "dependencies": {
     "tslib": "^2.0.0"
